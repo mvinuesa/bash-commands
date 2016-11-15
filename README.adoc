@@ -1,0 +1,63 @@
+# bash-commands
+
+This projects is used for Bash scripting commands documentation
+
+## Bash documentation
+
+* link:https://www.gnu.org/software/bash/bash.html[Bash]
+* link:http://www.tldp.org/LDP/Bash-Beginners-Guide/html/[Bash Beginners Guide]
+* link:http://www.tldp.org/LDP/abs/html/[Advanced Bash-Scripting Guide]
+
+### Define variables
+  $ ORIGIN="~/.ssh"
+  
+### Define variables executing commands inside
+
+  $ ORIGIN="$(pwd)"
+
+### Conditional
+
+-----
+if [ ! -d "$DIRECTORY" ];
+then
+	mkdir ".ssh"
+	chmod 700 .ssh
+	echo "Created .ssh folder"
+else
+	echo ".ssh folder exit"
+fi
+-----
+
+### Write to file, using special character like \n,\t,\r using -e option
+
+  $ echo -e "Host *\n\tUserKnownHostsFile /dev/null \n\tStrictHostKeyChecking no\n" >> config
+  
+### Replace substring
+
+  * Substring for the beginning
+  
+    $ TMP_SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY/-----BEGIN RSA PRIVATE KEY-----/}
+
+  * Substring for the end
+  
+    $ TMP_SSH_PRIVATE_KEY=${TMP_SSH_PRIVATE_KEY%%-----END RSA PRIVATE KEY-----}
+  
+  * Replace one character/s
+  
+    $ echo "${TMP_SSH_PRIVATE_KEY/' '/'\n'}"
+  
+  * Replace all the character/s
+  
+    $ echo "${TMP_SSH_PRIVATE_KEY/' '/'\n'}"
+
+### Chmod, change permisions (rwx(Actual User),rwx(Group Users),rwx(Rest Users))
+
+  $ chmod 600 config
+  
+### Force exit execution when script command fail, -e option
+-----
+#!/bin/bash
+  set -e
+-----
+
+  
