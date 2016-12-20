@@ -15,8 +15,17 @@ This projects is used for Bash scripting commands documentation
 
   $ ORIGIN="$(pwd)"
 
-### Conditional
 
+### Which is a Unix command used to identify the location of executables.
+
+   $ wich script.sh
+   /usr/usr
+   
+   $ wich sh
+   /usr/bin/sh
+   
+### Conditional
+   
 -----
 if [ ! -d "$DIRECTORY" ];
 then
