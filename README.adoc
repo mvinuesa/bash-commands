@@ -57,7 +57,7 @@ fi
   
   * Replace all the character/s
   
-    $ echo "${TMP_SSH_PRIVATE_KEY/' '/'\n'}"
+    $ echo "${TMP_SSH_PRIVATE_KEY//' '/'\n'}"
 
 ### Chmod, change permisions (rwx(Actual User),rwx(Group Users),rwx(Rest Users))
 
